@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b5d45">
+<title>ArewaBiz Connect</title>
+<style>
+:root{--green:#0b5d45;--green2:#087653;--gold:#f2b544;--ink:#17231f;--muted:#68756f;--bg:#f4f7f5;--white:#fff;--line:#dfe8e2;--shadow:0 10px 30px rgba(15,65,45,.09)}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}button,input,select,textarea{font:inherit}button,a{cursor:pointer}a{color:inherit;text-decoration:none}.topbar{background:var(--green);color:#fff;padding:10px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.88rem}.topbar span{opacity:.95}.lang{border:1px solid #ffffff70;background:transparent;color:#fff;border-radius:999px;padding:6px 12px}.navwrap{background:#fff;box-shadow:0 2px 12px #0b5d4510;position:sticky;top:0;z-index:5}.nav{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.18rem;color:var(--green);white-space:nowrap}.logo{width:42px;height:42px;border-radius:13px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:900;letter-spacing:-1px;box-shadow:inset 0 -4px #0002}.brand small{display:block;font-size:.66rem;color:var(--muted);font-weight:600;letter-spacing:.2px}.navlinks{display:flex;gap:18px;align-items:center;font-weight:650;font-size:.92rem}.navlinks a:hover{color:var(--green2)}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.15s}.btn-primary{background:var(--green);color:white}.btn-primary:hover{background:var(--green2);transform:translateY(-1px)}.btn-light{background:#eaf4ee;color:var(--green)}.btn-outline{border:1px solid var(--line);background:#fff;color:var(--green)}.menu-btn{display:none;background:#eef5f0;border:0;border-radius:10px;padding:9px 12px;color:var(--green);font-weight:800}.container{max-width:1180px;margin:auto;padding:0 20px}.hero{background:linear-gradient(120deg,#083f31,#0b5d45 55%,#137b57);color:#fff;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:430px;height:430px;border:1px solid #ffffff20;border-radius:50%;right:-80px;top:-190px;box-shadow:0 0 0 45px #ffffff08,0 0 0 95px #ffffff06}.hero-inner{position:relative;z-index:1;max-width:1180px;margin:auto;padding:62px 20px 56px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:38px}.eyebrow{display:inline-flex;background:#ffffff19;border:1px solid #ffffff2e;border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:700;color:#f9d98c}.hero h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;letter-spacing:-1.8px;margin:18px 0}.hero h1 em{font-style:normal;color:var(--gold)}.hero p{color:#e2eee8;max-width:610px;font-size:1.08rem}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.hero .btn-primary{background:var(--gold);color:#18362a}.hero .btn-light{background:#ffffff17;color:white;border:1px solid #ffffff3b}.hero-card{background:#fff;color:var(--ink);border-radius:24px;padding:22px;box-shadow:0 24px 60px #002c1e45;transform:rotate(1deg)}.hero-card h3{margin:2px 0 4px}.hero-card p{color:var(--muted);font-size:.9rem;margin:0 0 16px}.mini-list{display:grid;gap:10px}.mini-item{display:flex;align-items:center;gap:12px;background:#f5f8f6;border:1px solid #e8eee9;border-radius:14px;padding:12px}.mini-icon{width:42px;height:42px;border-radius:12px;background:#dff0e6;display:grid;place-items:center;font-size:1.3rem}.mini-item strong{display:block;font-size:.93rem}.mini-item small{color:var(--muted)}.section{padding:48px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:22px}.section-head h2{font-size:clamp(1.55rem,3vw,2.2rem);margin:0;letter-spacing:-.7px}.section-head p{margin:6px 0 0;color:var(--muted)}.searchbar{display:flex;gap:10px;max-width:580px;margin:0 0 24px}.searchbar input{flex:1;min-width:0}.field, input, select, textarea{width:100%;border:1px solid #d9e4dd;border-radius:11px;padding:12px 13px;background:#fff;color:var(--ink);outline:none}.field:focus,input:focus,select:focus,textarea:focus{border-color:#5ba687;box-shadow:0 0 0 3px #0b5d4513}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #e5ece7;border-radius:18px;padding:20px;box-shadow:0 4px 18px #103c2510}.business-card{display:flex;flex-direction:column;gap:10px}.biz-top{display:flex;align-items:center;gap:12px}.biz-icon{width:52px;height:52px;display:grid;place-items:center;background:#e6f3eb;border-radius:15px;font-size:1.5rem;flex-shrink:0}.biz-top h3{font-size:1.02rem;margin:0}.biz-top small{color:var(--muted)}.badge{font-size:.75rem;font-weight:750;color:#176647;background:#e5f5eb;border-radius:999px;padding:5px 9px;display:inline-block;width:max-content}.business-card p{color:var(--muted);font-size:.92rem;margin:0;flex:1}.biz-actions{display:flex;gap:8px;margin-top:6px}.biz-actions .btn{flex:1;padding:10px 8px;font-size:.88rem}.empty{padding:28px;text-align:center;color:var(--muted);background:white;border:1px dashed #cad9cf;border-radius:16px;grid-column:1/-1}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step-num{width:38px;height:38px;background:var(--green);color:white;border-radius:12px;display:grid;place-items:center;font-weight:850;margin-bottom:13px}.card h3{margin:0 0 7px}.card p{margin:0;color:var(--muted)}.join-section{background:#eaf3ed}.join-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}.join-copy{padding:10px 0}.join-copy h2{font-size:2.1rem;line-height:1.15;margin:0 0 14px}.checkline{display:flex;gap:10px;margin:14px 0;color:#30443a}.check{color:var(--green);font-weight:900}.form-card{background:#fff;border:1px solid #dce8df;border-radius:20px;padding:24px;box-shadow:var(--shadow)}.form-card h3{margin:0 0 5px}.form-card .sub{color:var(--muted);font-size:.9rem;margin:0 0 18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-group{display:grid;gap:6px}.form-group label{font-size:.87rem;font-weight:700}.full{grid-column:1/-1}.form-note{font-size:.78rem;color:var(--muted);margin-top:10px}.notice{display:none;border-radius:12px;padding:12px 14px;margin:0 0 14px;background:#e5f5eb;color:#14583c;font-weight:650}.notice.show{display:block}.footer{background:#092f25;color:#dcebe3;padding:36px 0 18px}.footer-main{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer .brand{color:#fff}.footer .brand small{color:#c2d6ca}.footer p{max-width:420px;color:#bfd3c7}.footer-bottom{border-top:1px solid #ffffff20;margin-top:25px;padding-top:15px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#b4cbbd;font-size:.82rem}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,120px);opacity:0;background:#123e2f;color:white;padding:13px 18px;border-radius:12px;z-index:10;box-shadow:var(--shadow);transition:.25s;max-width:90%;text-align:center}.toast.show{transform:translate(-50%,0);opacity:1}.modal-backdrop{display:none;position:fixed;inset:0;background:#071f17aa;z-index:20;align-items:center;justify-content:center;padding:18px}.modal-backdrop.show{display:flex}.modal{background:#fff;border-radius:18px;max-width:520px;width:100%;padding:24px;max-height:90vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.close{border:0;background:#edf3ef;border-radius:9px;padding:7px 11px;font-weight:800}.modal p{color:var(--muted)}.hidden{display:none!important}
+@media(max-width:850px){.navlinks{display:none;position:absolute;top:70px;left:12px;right:12px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:15px;padding:15px;flex-direction:column;align-items:stretch}.navlinks.open{display:flex}.navlinks a,.navlinks button{padding:9px}.menu-btn{display:inline-flex}.nav>.btn{display:none}.hero-inner{grid-template-columns:1fr;padding-top:45px}.hero-card{max-width:500px;transform:none}.grid{grid-template-columns:repeat(2,1fr)}.join-layout{grid-template-columns:1fr}.section{padding:38px 0}}
+@media(max-width:570px){.topbar{padding:8px 15px;font-size:.76rem}.nav{padding:11px 15px}.brand{font-size:1rem}.logo{width:38px;height:38px}.container{padding:0 15px}.hero-inner{padding:38px 15px 42px;gap:28px}.hero h1{font-size:2.45rem;letter-spacing:-1.2px}.hero p{font-size:1rem}.hero-actions .btn{flex:1}.section-head{display:block}.section-head .btn{margin-top:13px}.grid,.steps{grid-template-columns:1fr}.searchbar{flex-direction:column}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.form-card{padding:18px}.join-copy h2{font-size:1.8rem}.biz-actions .btn{font-size:.82rem}.footer{padding-top:28px}}
+</style>
+</head>
+<body>
+<div class="topbar"><span data-en="🌍 Starting in Arewa, open to the world" data-ha="🌍 Mun fara a Arewa, muna maraba da duniya">🌍 Starting in Arewa, open to the world</span><button class="lang" id="langBtn" type="button">Hausa</button></div>
+<div class="navwrap">
+  <nav class="nav">
+    <a class="brand" href="#home" aria-label="ArewaBiz Connect home"><span class="logo">ABC</span><span>ArewaBiz Connect<small data-en="Connecting Businesses. Creating Opportunities." data-ha="Haɗa Kasuwanci. Ƙirƙirar Dama.">Connecting Businesses. Creating Opportunities.</small></span></a>
+    <div class="navlinks" id="navlinks">
+      <a href="#home" data-en="Home" data-ha="Gida">Home</a><a href="#businesses" data-en="Businesses" data-ha="Kasuwanci">Businesses</a><a href="#how" data-en="How it works" data-ha="Yadda yake aiki">How it works</a><a href="#join" data-en="Join us" data-ha="Shiga mu">Join us</a>
+    </div>
+    <button class="btn btn-primary" onclick="goJoin()" data-en="Get started" data-ha="Fara yanzu">Get started</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </nav>
+</div>
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow" data-en="YOUR COMMUNITY. YOUR OPPORTUNITY." data-ha="AL'UMMARKA. DAMARKA.">YOUR COMMUNITY. YOUR OPPORTUNITY.</span>
+      <h1 data-en="Good business starts with a <em>connection.</em>" data-ha="Kyakkyawan kasuwanci yana farawa da <em>haɗin kai.</em>">Good business starts with a <em>connection.</em></h1>
+      <p data-en="Discover local businesses, showcase what you do, and connect with customers and opportunities — from Arewa to everywhere." data-ha="Gano kasuwancin kusa da kai, nuna abin da kake yi, ka haɗu da kwastomomi da damammaki — daga Arewa zuwa ko'ina.">Discover local businesses, showcase what you do, and connect with customers and opportunities — from Arewa to everywhere.</p>
+      <div class="hero-actions"><a href="#businesses" class="btn btn-primary" data-en="Explore businesses →" data-ha="Duba kasuwanci →">Explore businesses →</a><button class="btn btn-light" onclick="goJoin()" data-en="List your business" data-ha="Sanya kasuwancinka">List your business</button></div>
+    </div>
+    <div class="hero-card">
+      <h3 data-en="A place for business to grow" data-ha="Wurin bunƙasa kasuwanci">A place for business to grow</h3>
+      <p data-en="Meet the people and services around you." data-ha="Haɗu da mutane da ayyukan da ke kusa da kai.">Meet the people and services around you.</p>
+      <div class="mini-list">
+        <div class="mini-item"><div class="mini-icon">🏪</div><div><strong data-en="Local business directory" data-ha="Jerin kasuwancin gida">Local business directory</strong><small data-en="Find shops and services" data-ha="Nemo shaguna da ayyuka">Find shops and services</small></div></div>
+        <div class="mini-item"><div class="mini-icon">🤝</div><div><strong data-en="Direct connections" data-ha="Haɗin kai kai tsaye">Direct connections</strong><small data-en="Contact by WhatsApp or phone" data-ha="Tuntuɓa ta WhatsApp ko waya">Contact by WhatsApp or phone</small></div></div>
+        <div class="mini-item"><div class="mini-icon">📈</div><div><strong data-en="More opportunities" data-ha="Ƙarin damammaki">More opportunities</strong><small data-en="Help good businesses get noticed" data-ha="Taimaka wa kasuwanci su samu suna">Help good businesses get noticed</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="businesses">
+  <div class="container">
+    <div class="section-head"><div><h2 data-en="Discover businesses" data-ha="Gano kasuwanci">Discover businesses</h2><p data-en="Explore the sample listings or add your own business below." data-ha="Duba misalan kasuwanci ko ƙara naka a ƙasa.">Explore the sample listings or add your own business below.</p></div><button class="btn btn-primary" onclick="goJoin()" data-en="+ Add a business" data-ha="+ Ƙara kasuwanci">+ Add a business</button></div>
+    <div class="searchbar"><input id="searchInput" type="search" placeholder="Search business, service or location…" data-placeholder-en="Search business, service or location…" data-placeholder-ha="Nemo kasuwanci, aiki ko wuri…"><select id="categoryFilter" aria-label="Filter by category"><option value="all" data-en="All categories" data-ha="Dukkan rukuni">All categories</option><option value="Food" data-en="Food & groceries" data-ha="Abinci da kayan masarufi">Food & groceries</option><option value="Fashion" data-en="Fashion" data-ha="Sutura">Fashion</option><option value="Services" data-en="Professional services" data-ha="Ayyukan ƙwararru">Professional services</option><option value="Technology" data-en="Technology" data-ha="Fasaha">Technology</option></select></div>
+    <div class="grid" id="businessGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="how" style="background:#fff">
+  <div class="container">
+    <div class="section-head"><div><h2 data-en="Simple to get started" data-ha="Sauƙin farawa">Simple to get started</h2><p data-en="Built to help people find one another and do business." data-ha="An tsara shi domin taimaka wa mutane su haɗu su yi kasuwanci.">Built to help people find one another and do business.</p></div></div>
+    <div class="steps">
+      <div class="card"><div class="step-num">1</div><h3 data-en="Create your profile" data-ha="Ƙirƙiri bayananka">Create your profile</h3><p data-en="Register as a customer, business owner, seller or affiliate member." data-ha="Yi rajista a matsayin kwastoma, mai kasuwanci, mai sayarwa ko memba na affiliate.">Register as a customer, business owner, seller or affiliate member.</p></div>
+      <div class="card"><div class="step-num">2</div><h3 data-en="Find or share" data-ha="Nemo ko nuna">Find or share</h3><p data-en="Discover useful businesses, or submit a listing to help customers find you." data-ha="Nemo kasuwanci mai amfani, ko saka bayanan kasuwancinka domin kwastomomi su same ka.">Discover useful businesses, or submit a listing to help customers find you.</p></div>
+      <div class="card"><div class="step-num">3</div><h3 data-en="Connect directly" data-ha="Haɗu kai tsaye">Connect directly</h3><p data-en="Use WhatsApp or phone to ask questions and discuss products or services." data-ha="Yi amfani da WhatsApp ko waya wajen tambaya da tattauna kaya ko ayyuka.">Use WhatsApp or phone to ask questions and discuss products or services.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section join-section" id="join">
+  <div class="container join-layout">
+    <div class="join-copy">
+      <span class="badge" data-en="JOIN THE COMMUNITY" data-ha="SHIGA AL'UMMA">JOIN THE COMMUNITY</span>
+      <h2 data-en="Your next connection could open a door." data-ha="Haɗinka na gaba zai iya buɗe maka wata dama.">Your next connection could open a door.</h2>
+      <p data-en="Join the early community. Registration is free in this demo. You can create a profile and submit a business listing." data-ha="Shiga cikin waɗanda suka fara amfani da dandalin. Rajista kyauta ce a wannan gwaji. Za ka iya ƙirƙirar bayananka da saka kasuwanci.">Join the early community. Registration is free in this demo. You can create a profile and submit a business listing.</p>
+      <div class="checkline"><span class="check">✓</span><span data-en="Open to customers, entrepreneurs, sellers and affiliate marketers" data-ha="A buɗe ga kwastomomi, 'yan kasuwa, masu sayarwa da masu affiliate">Open to customers, entrepreneurs, sellers and affiliate marketers</span></div>
+      <div class="checkline"><span class="check">✓</span><span data-en="English and Hausa interface" data-ha="Fuskar amfani da Turanci da Hausa">English and Hausa interface</span></div>
+      <div class="checkline"><span class="check">✓</span><span data-en="Direct contact through WhatsApp and phone" data-ha="Tuntuɓa kai tsaye ta WhatsApp da waya">Direct contact through WhatsApp and phone</span></div>
+    </div>
+    <form class="form-card" id="joinForm">
+      <h3 data-en="Join ArewaBiz Connect" data-ha="Shiga ArewaBiz Connect">Join ArewaBiz Connect</h3>
+      <p class="sub" data-en="Fill in your details to create a local demo profile." data-ha="Cika bayananka domin ƙirƙirar profile a wannan gwaji.">Fill in your details to create a local demo profile.</p>
+      <div id="formNotice" class="notice" role="status"></div>
+      <div class="form-grid">
+        <div class="form-group"><label for="fullName" data-en="Full name" data-ha="Cikakken suna">Full name</label><input id="fullName" required autocomplete="name" placeholder="Your name"></div>
+        <div class="form-group"><label for="role" data-en="I am joining as" data-ha="Ina shiga a matsayin">I am joining as</label><select id="role" required><option value="Customer" data-en="Customer" data-ha="Kwastoma">Customer</option><option value="Business owner" data-en="Business owner" data-ha="Mai kasuwanci">Business owner</option><option value="Seller" data-en="Seller" data-ha="Mai sayarwa">Seller</option><option value="Affiliate marketer" data-en="Affiliate marketer" data-ha="Mai affiliate marketing">Affiliate marketer</option></select></div>
+        <div class="form-group"><label for="email" data-en="Email (optional)" data-ha="Imel (ba dole ba)">Email (optional)</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+        <div class="form-group"><label for="phone" data-en="Phone / WhatsApp" data-ha="Lambar waya / WhatsApp">Phone / WhatsApp</label><input id="phone" required type="tel" autocomplete="tel" placeholder="+234…"></div>
+        <div class="form-group full"><label for="location" data-en="Town / State / Country" data-ha="Gari / Jiha / Ƙasa">Town / State / Country</label><input id="location" required placeholder="e.g. Bauchi, Nigeria"></div>
+        <div class="form-group full"><label for="bizName" data-en="Business name (if applicable)" data-ha="Sunan kasuwanci (idan akwai)">Business name (if applicable)</label><input id="bizName" placeholder="Your business name"></div>
+        <div class="form-group"><label for="bizCategory" data-en="Business category" data-ha="Rukuni">Business category</label><select id="bizCategory"><option value="Services" data-en="Services" data-ha="Ayyuka">Services</option><option value="Food" data-en="Food & groceries" data-ha="Abinci da kayan masarufi">Food & groceries</option><option value="Fashion" data-en="Fashion" data-ha="Sutura">Fashion</option><option value="Technology" data-en="Technology" data-ha="Fasaha">Technology</option><option value="Other" data-en="Other" data-ha="Sauran">Other</option></select></div>
+        <div class="form-group"><label for="bizWhatsapp" data-en="Business WhatsApp (optional)" data-ha="WhatsApp na kasuwanci (ba dole ba)">Business WhatsApp (optional)</label><input id="bizWhatsapp" type="tel" placeholder="+234…"></div>
+        <div class="form-group full"><label for="description" data-en="What do you offer? (optional)" data-ha="Me kake bayarwa? (ba dole ba)">What do you offer? (optional)</label><textarea id="description" rows="3" placeholder="Briefly describe your business or interests"></textarea></div>
+        <div class="full"><button class="btn btn-primary" style="width:100%" type="submit" data-en="Create demo profile" data-ha="Ƙirƙiri profile na gwaji">Create demo profile</button><div class="form-note" data-en="Prototype notice: details are saved only in this browser on this device. This is not yet a live public registration system." data-ha="Lura: Ana adana bayanai a wannan browser da na'ura kawai. Wannan ba cikakken tsarin rajista na intanet ba ne tukuna.">Prototype notice: details are saved only in this browser on this device. This is not yet a live public registration system.</div></div>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-main"><div><a class="brand" href="#home"><span class="logo">ABC</span><span>ArewaBiz Connect<small>Connecting Businesses. Creating Opportunities.</small></span></a><p data-en="A community-first business connection platform, starting in Arewa and built with a global outlook." data-ha="Dandalin haɗa kasuwanci mai farawa daga Arewa, tare da hangen nesa na duniya.">A community-first business connection platform, starting in Arewa and built with a global outlook.</p></div><div><strong data-en="Explore" data-ha="Duba">Explore</strong><p><a href="#businesses" data-en="Business directory" data-ha="Jerin kasuwanci">Business directory</a><br><a href="#how" data-en="How it works" data-ha="Yadda yake aiki">How it works</a><br><a href="#join" data-en="Join the community" data-ha="Shiga al'umma">Join the community</a></p></div></div><div class="footer-bottom"><span>© <span id="year"></span> ArewaBiz Connect</span><span data-en="Prototype • Built to grow" data-ha="Gwaji • An tsara shi domin bunƙasa">Prototype • Built to grow</span></div></div></footer>
+<div class="toast" id="toast" role="status"></div>
+<div class="modal-backdrop" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="profileTitle"><div class="modal"><div class="modal-head"><h2 id="profileTitle" style="margin:0">Profile created</h2><button class="close" onclick="closeModal()" aria-label="Close">✕</button></div><div id="profileContent"></div><button class="btn btn-primary" onclick="closeModal()" style="width:100%;margin-top:12px">Close</button></div></div>
+<script>
+const sampleBusinesses = [
+ {id:'sample1',name:'Hajara Foods & Grains',category:'Food',location:'Bauchi, Nigeria',phone:'+2348012345678',description:'Grains, spices and everyday food essentials for homes and small retailers.',icon:'🌾',sample:true},
+ {id:'sample2',name:'Arewa Style House',category:'Fashion',location:'Kano, Nigeria',phone:'+2348023456789',description:'Traditional and contemporary clothing, fabrics and tailoring services.',icon:'🧵',sample:true},
+ {id:'sample3',name:'NorthTech Digital Services',category:'Technology',location:'Abuja, Nigeria',phone:'+2348034567890',description:'Website setup, digital support and practical technology services for small businesses.',icon:'💻',sample:true},
+ {id:'sample4',name:'Aminu Repairs & Services',category:'Services',location:'Kaduna, Nigeria',phone:'+2348045678901',description:'Reliable home and small-office repair services. Contact to ask about availability.',icon:'🛠️',sample:true},
+ {id:'sample5',name:'Zahra Beauty & Care',category:'Services',location:'Jos, Nigeria',phone:'+2348056789012',description:'Beauty care, accessories and appointment-based personal services.',icon:'✨',sample:true},
+ {id:'sample6',name:'Golden Basket Mini Mart',category:'Food',location:'Gombe, Nigeria',phone:'+2348067890123',description:'Household provisions and selected packaged food items.',icon:'🛒',sample:true}
+];
+let language = 'en';
+const translations = {
+ en:{sample:'Demo listing',added:'Community listing',contact:'WhatsApp',call:'Call',noResults:'No businesses match your search yet. Be the first to add one!',noPhone:'This listing has no contact number yet.',registered:'Your demo profile has been saved on this device.',addedBusiness:'Your business has been added to this browser demo.',profile:'Your profile',role:'Account type',location:'Location',business:'Business',note:'This is a local prototype, not a live account. Your details have not been uploaded to a server.'},
+ ha:{sample:'Misalin kasuwanci',added:'Kasuwancin al’umma',contact:'WhatsApp',call:'Kira',noResults:'Ba a sami kasuwancin da ya dace da bincikenka ba. Ka fara saka naka!',noPhone:'Ba a saka lambar waya a wannan kasuwancin ba tukuna.',registered:'An adana bayanan gwajinka a wannan na’urar.',addedBusiness:'An ƙara kasuwancinka a wannan gwajin browser.',profile:'Bayanan ka',role:'Nau’in asusu',location:'Wuri',business:'Kasuwanci',note:'Wannan gwajin yana aiki a na’urar nan kawai; ba asusu na intanet ba ne. Ba a tura bayananka zuwa uwar garke ba.'}
+};
+function getUserBusinesses(){try{return JSON.parse(localStorage.getItem('abiz_businesses')||'[]')}catch(e){return []}}
+function allBusinesses(){return [...getUserBusinesses(),...sampleBusinesses]}
+function safeText(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function phoneDigits(p){return String(p||'').replace(/\D/g,'')}
+function renderBusinesses(){
+ const q=(document.getElementById('searchInput').value||'').toLowerCase().trim();
+ const cat=document.getElementById('categoryFilter').value;
+ const data=allBusinesses().filter(b=>(cat==='all'||b.category===cat)&&[b.name,b.category,b.location,b.description].join(' ').toLowerCase().includes(q));
+ const grid=document.getElementById('businessGrid'); grid.innerHTML='';
+ if(!data.length){grid.innerHTML=`<div class="empty">${translations[language].noResults}</div>`;return}
+ data.forEach(b=>{
+   const icon=b.icon||({Food:'🍲',Fashion:'🧵',Technology:'💻',Services:'🛠️',Other:'🏪'}[b.category]||'🏪');
+   const phone=phoneDigits(b.phone||b.whatsapp||'');
+   const whatsapp=phone?`https://wa.me/${phone}`:'#';
+   const tel=phone?`tel:+${phone}`:'#';
+   const card=document.createElement('article');card.className='card business-card';
+   card.innerHTML=`<div class="biz-top"><div class="biz-icon">${icon}</div><div><h3>${safeText(b.name)}</h3><small>📍 ${safeText(b.location||'Location not provided')}</small></div></div><span class="badge">${safeText(b.category||'Business')}</span><p>${safeText(b.description||'Contact this business to learn more.')}</p><small style="color:var(--muted)">${b.sample?translations[language].sample:translations[language].added}</small><div class="biz-actions"><a class="btn btn-light" ${phone?`href="${whatsapp}" target="_blank" rel="noopener"`:'href="#"'} onclick="${phone?'':'event.preventDefault();showToast(translations[language].noPhone)'}">◉ ${translations[language].contact}</a><a class="btn btn-outline" ${phone?`href="${tel}"`:'href="#"'} onclick="${phone?'':'event.preventDefault();showToast(translations[language].noPhone)'}">☎ ${translations[language].call}</a></div>`;
+   grid.appendChild(card);
+ });
+}
+function showToast(message){const t=document.getElementById('toast');t.textContent=message;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3200)}
+function goJoin(){document.getElementById('join').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('fullName').focus({preventScroll:true}),450)}
+function closeModal(){document.getElementById('profileModal').classList.remove('show')}
+function setLanguage(lang){
+ language=lang;document.documentElement.lang=lang;
+ document.querySelectorAll('[data-en][data-ha]').forEach(el=>{
+   if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){return}
+   const val=el.dataset[lang]; if(val!==undefined)el.innerHTML=val;
+ });
+ document.querySelectorAll('option[data-en][data-ha]').forEach(el=>el.textContent=el.dataset[lang]);
+ document.getElementById('langBtn').textContent=lang==='en'?'Hausa':'English';
+ const search=document.getElementById('searchInput');search.placeholder=search.dataset['placeholder'+(lang==='en'?'En':'Ha')];
+ renderBusinesses();
+}
+document.getElementById('langBtn').addEventListener('click',()=>setLanguage(language==='en'?'ha':'en'));
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+document.getElementById('searchInput').addEventListener('input',renderBusinesses);
+document.getElementById('categoryFilter').addEventListener('change',renderBusinesses);
+document.getElementById('joinForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const user={id:'u'+Date.now(),name:document.getElementById('fullName').value.trim(),role:document.getElementById('role').value,email:document.getElementById('email').value.trim(),phone:document.getElementById('phone').value.trim(),location:document.getElementById('location').value.trim(),businessName:document.getElementById('bizName').value.trim(),category:document.getElementById('bizCategory').value,whatsapp:document.getElementById('bizWhatsapp').value.trim(),description:document.getElementById('description').value.trim(),createdAt:new Date().toISOString()};
+ let users=[];try{users=JSON.parse(localStorage.getItem('abiz_users')||'[]')}catch(err){}
+ users.push(user);localStorage.setItem('abiz_users',JSON.stringify(users));
+ let added=false;
+ if(user.businessName && (user.role==='Business owner'||user.role==='Seller')){
+  const businesses=getUserBusinesses();businesses.unshift({id:user.id,name:user.businessName,category:user.category,location:user.location,phone:user.whatsapp||user.phone,description:user.description||'Contact this business to learn more.',icon:({Food:'🍲',Fashion:'🧵',Technology:'💻',Services:'🛠️',Other:'🏪'}[user.category]||'🏪'),sample:false});localStorage.setItem('abiz_businesses',JSON.stringify(businesses));added=true;renderBusinesses();
+ }
+ const tr=translations[language];
+ document.getElementById('profileTitle').textContent=tr.profile;
+ document.getElementById('profileContent').innerHTML=`<p><strong>${safeText(user.name)}</strong></p><p>${tr.role}: ${safeText(user.role)}</p><p>${tr.location}: ${safeText(user.location)}</p>${user.businessName?`<p>${tr.business}: ${safeText(user.businessName)}</p>`:''}<p>${tr.note}</p>`;
+ document.getElementById('profileModal').classList.add('show');
+ const notice=document.getElementById('formNotice');notice.textContent=added?tr.addedBusiness:tr.registered;notice.classList.add('show');
+ this.reset();
+});
+document.getElementById('profileModal').addEventListener('click',e=>{if(e.target.id==='profileModal')closeModal()});
+document.getElementById('year').textContent=new Date().getFullYear();
+renderBusinesses();
+</script>
+</body>
+</html>
