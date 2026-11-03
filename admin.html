@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b5d45">
+<title>ArewaBiz Connect – Admin</title>
+<style>
+:root{--green:#0b5d45;--green2:#087653;--gold:#f2b544;--ink:#17231f;--muted:#68756f;--bg:#f4f7f5;--line:#dfe8e2;--shadow:0 10px 30px rgba(15,65,45,.09)}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+button,input,select{font:inherit}button{cursor:pointer}
+header{background:var(--green);color:#fff;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;gap:10px}
+header strong{font-size:1.05rem}header small{display:block;opacity:.85;font-size:.78rem}
+main{max-width:820px;margin:0 auto;padding:20px 5% 60px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:20px;margin-bottom:16px}
+h2{margin:0 0 6px}p.sub{color:var(--muted);margin:0 0 16px}
+label{display:block;font-weight:700;font-size:.88rem;margin:12px 0 5px}
+input{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+.btn{border:0;border-radius:11px;padding:11px 16px;font-weight:750}
+.btn-primary{background:var(--green);color:#fff}.btn-outline{background:#fff;color:var(--green);border:1px solid var(--green)}
+.btn-ok{background:#176647;color:#fff}.btn-no{background:#fff;color:#8a2a22;border:1px solid #e0b4b0}.btn-gold{background:#fff3d6;color:#7a5a07}
+.btn[disabled]{opacity:.6;cursor:not-allowed}
+.notice{display:none;margin:12px 0;padding:11px 13px;border-radius:12px;background:#e5f5eb;color:#176647;font-size:.92rem}.notice.show{display:block}.notice.error{background:#fdeceb;color:#8a2a22}
+.hidden{display:none!important}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tab{flex:1;min-width:90px;border:1px solid var(--line);background:#fff;color:var(--green);border-radius:11px;padding:10px;font-weight:750}
+.tab.active{background:var(--green);color:#fff;border-color:var(--green)}
+.biz h3{margin:0 0 2px;font-size:1.1rem}.biz .meta{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.biz dl{display:grid;grid-template-columns:110px 1fr;gap:4px 10px;margin:10px 0;font-size:.92rem}
+.biz dt{color:var(--muted)}.biz dd{margin:0;word-break:break-word}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pill{display:inline-block;font-size:.75rem;font-weight:750;border-radius:999px;padding:4px 10px;margin-right:6px}
+.pill.pending{background:#fff3d6;color:#7a5a07}.pill.approved{background:#e5f5eb;color:#176647}.pill.rejected{background:#fdeceb;color:#8a2a22}.pill.verified{background:#e6eefb;color:#1f4a8a}
+.empty{text-align:center;color:var(--muted);padding:30px 10px}
+</style>
+</head>
+<body>
+<header><div><strong>ArewaBiz Connect</strong><small>Administrator</small></div><button class="btn btn-outline hidden" id="logoutBtn" type="button">Log out</button></header>
+<main>
+  <section class="card" id="loginCard">
+    <h2>Administrator login</h2>
+    <p class="sub">Only approved administrators can use this page.</p>
+    <div id="loginNotice" class="notice" role="status"></div>
+    <form id="loginForm">
+      <label for="email">Email</label><input id="email" type="email" required autocomplete="email">
+      <label for="password">Password</label><input id="password" type="password" required autocomplete="current-password">
+      <div style="margin-top:16px"><button class="btn btn-primary" style="width:100%" type="submit" id="loginBtn">Log in</button></div>
+    </form>
+  </section>
+
+  <section id="panel" class="hidden">
+    <div class="card" style="padding:16px">
+      <div id="panelNotice" class="notice" role="status"></div>
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-status="pending" type="button">Pending <span id="cPending"></span></button>
+        <button class="tab" data-status="approved" type="button">Approved <span id="cApproved"></span></button>
+        <button class="tab" data-status="rejected" type="button">Rejected <span id="cRejected"></span></button>
+      </div>
+      <button class="btn btn-outline" id="refreshBtn" type="button">Refresh list</button>
+    </div>
+    <div id="list"></div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL='https://jrzywdmviyiassxtslzl.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impyenl3ZG12aXlpYXNzeHRzbHpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMxMTY0MTgsImV4cCI6MjEwODY5MjQxOH0.kxDGVjLl-_O-I6Zx21mIZ8oVUtvV9fJEu8KHFLdr-5E';
+const sb=(window.supabase&&window.supabase.createClient)?window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY):null;
+const $=id=>document.getElementById(id);
+let all=[],current='pending',busy=false;
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function setNotice(el,msg,err){el.textContent=msg;el.classList.toggle('error',!!err);el.classList.add('show')}
+function clearNotice(el){el.textContent='';el.classList.remove('show','error')}
+function waNumber(p){let d=String(p||'').replace(/\D/g,'');if(!d)return '';if(d.startsWith('0'))d='234'+d.slice(1);else if(d.length===10&&/^[789]/.test(d))d='234'+d;return d}
+
+async function checkAdmin(){
+  if(!sb){setNotice($('loginNotice'),'Could not connect. Check your internet and refresh.',true);return}
+  const {data:{session}}=await sb.auth.getSession();
+  if(!session){show(false);return}
+  const {data,error}=await sb.rpc('is_admin');
+  if(error||data!==true){
+    await sb.auth.signOut();
+    show(false);
+    setNotice($('loginNotice'),'This account is not an administrator.',true);
+    return;
+  }
+  show(true);
+  load();
+}
+function show(isAdmin){
+  $('loginCard').classList.toggle('hidden',isAdmin);
+  $('panel').classList.toggle('hidden',!isAdmin);
+  $('logoutBtn').classList.toggle('hidden',!isAdmin);
+}
+$('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!sb)return;
+  clearNotice($('loginNotice'));$('loginBtn').disabled=true;
+  const {error}=await sb.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});
+  $('loginBtn').disabled=false;
+  if(error){setNotice($('loginNotice'),/invalid login/i.test(error.message)?'Wrong email or password.':error.message,true);return}
+  $('password').value='';
+  checkAdmin();
+});
+$('logoutBtn').addEventListener('click',async()=>{await sb.auth.signOut();all=[];show(false);clearNotice($('loginNotice'))});
+
+async function load(){
+  clearNotice($('panelNotice'));
+  $('list').innerHTML='<div class="empty">Loading…</div>';
+  const {data,error}=await sb.from('businesses').select('id,business_name,category,description,state,city,address,phone,whatsapp,email,verified,status,created_at').order('created_at',{ascending:false});
+  if(error){console.error(error);$('list').innerHTML='';setNotice($('panelNotice'),'Could not load businesses. Please refresh.',true);return}
+  all=data||[];
+  render();
+}
+function render(){
+  ['pending','approved','rejected'].forEach(s=>{$('c'+s[0].toUpperCase()+s.slice(1)).textContent='('+all.filter(b=>b.status===s).length+')'});
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.status===current));
+  const list=all.filter(b=>b.status===current);
+  const box=$('list');
+  if(!list.length){box.innerHTML='<div class="card empty">No '+current+' businesses.</div>';return}
+  box.innerHTML=list.map(b=>{
+    const wa=waNumber(b.whatsapp||b.phone);
+    const acts=[];
+    if(b.status!=='approved')acts.push(`<button class="btn btn-ok" data-act="approved" data-id="${esc(b.id)}" type="button">Approve</button>`);
+    if(b.status!=='rejected')acts.push(`<button class="btn btn-no" data-act="rejected" data-id="${esc(b.id)}" type="button">Reject</button>`);
+    if(b.status!=='pending')acts.push(`<button class="btn btn-outline" data-act="pending" data-id="${esc(b.id)}" type="button">Move to pending</button>`);
+    acts.push(`<button class="btn btn-gold" data-act="verify" data-id="${esc(b.id)}" type="button">${b.verified?'Remove verified':'Mark verified'}</button>`);
+    return `<article class="card biz"><h3>${esc(b.business_name)}</h3><p class="meta"><span class="pill ${esc(b.status)}">${esc(b.status)}</span>${b.verified?'<span class="pill verified">verified</span>':''}${esc(new Date(b.created_at).toLocaleDateString())}</p>
+    <dl><dt>Category</dt><dd>${esc(b.category)}</dd><dt>Location</dt><dd>${esc([b.city,b.state].filter(Boolean).join(', '))}</dd>${b.address?`<dt>Address</dt><dd>${esc(b.address)}</dd>`:''}<dt>Phone</dt><dd>${esc(b.phone)}</dd>${b.whatsapp?`<dt>WhatsApp</dt><dd>${esc(b.whatsapp)}</dd>`:''}${b.email?`<dt>Email</dt><dd>${esc(b.email)}</dd>`:''}${b.description?`<dt>About</dt><dd>${esc(b.description)}</dd>`:''}</dl>
+    <div class="actions">${acts.join('')}${wa?`<a class="btn btn-outline" style="text-decoration:none" href="https://wa.me/${wa}" target="_blank" rel="noopener">WhatsApp owner</a>`:''}</div></article>`;
+  }).join('');
+}
+$('tabs').addEventListener('click',e=>{const t=e.target.closest('.tab');if(!t)return;current=t.dataset.status;render()});
+$('refreshBtn').addEventListener('click',load);
+$('list').addEventListener('click',async e=>{
+  const btn=e.target.closest('button[data-act]');if(!btn||busy)return;
+  const id=btn.dataset.id,act=btn.dataset.act,b=all.find(x=>x.id===id);if(!b)return;
+  const patch=act==='verify'?{verified:!b.verified}:{status:act};
+  busy=true;btn.disabled=true;clearNotice($('panelNotice'));
+  const {error}=await sb.from('businesses').update(patch).eq('id',id);
+  busy=false;
+  if(error){console.error(error);btn.disabled=false;setNotice($('panelNotice'),'Could not save the change. Please try again.',true);return}
+  Object.assign(b,patch);
+  render();
+  setNotice($('panelNotice'),act==='verify'?'Verified setting saved.':'Saved: '+b.business_name+' is now '+act+'.',false);
+});
+
+sb&&sb.auth.onAuthStateChange(()=>{});
+checkAdmin();
+</script>
+</body>
+</html>
