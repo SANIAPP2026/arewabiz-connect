@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b5d45">
+<title>ArewaBiz Connect</title>
+<meta name="description" content="ArewaBiz Connect is a business directory connecting local businesses and customers across Northern Nigeria. Available in English and Hausa.">
+<style>
+:root{--green:#0b5d45;--green2:#087653;--gold:#f2b544;--ink:#17231f;--muted:#68756f;--bg:#f4f7f5;--white:#fff;--line:#dfe8e2;--shadow:0 10px 30px rgba(15,65,45,.09)}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}button,input,select,textarea{font:inherit}button,a{cursor:pointer}a{color:inherit;text-decoration:none}.topbar{background:var(--green);color:#fff;padding:10px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.88rem}.topbar span{opacity:.95}.lang{border:1px solid #ffffff70;background:transparent;color:#fff;border-radius:999px;padding:6px 12px}.navwrap{background:#fff;box-shadow:0 2px 12px #0b5d4510;position:sticky;top:0;z-index:5}.nav{max-width:1180px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.18rem;color:var(--green);white-space:nowrap}.logo{width:42px;height:42px;border-radius:13px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:900;letter-spacing:-1px;box-shadow:inset 0 -4px #0002}.brand small{display:block;font-size:.66rem;color:var(--muted);font-weight:600;letter-spacing:.2px}.navlinks{display:flex;gap:18px;align-items:center;font-weight:650;font-size:.92rem}.navlinks a:hover{color:var(--green2)}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.15s}.btn-primary{background:var(--green);color:white}.btn-primary:hover{background:var(--green2);transform:translateY(-1px)}.btn-light{background:#eaf4ee;color:var(--green)}.btn-outline{border:1px solid var(--line);background:#fff;color:var(--green)}.menu-btn{display:none;background:#eef5f0;border:0;border-radius:10px;padding:9px 12px;color:var(--green);font-weight:800}.container{max-width:1180px;margin:auto;padding:0 20px}.hero{background:linear-gradient(120deg,#083f31,#0b5d45 55%,#137b57);color:#fff;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:430px;height:430px;border:1px solid #ffffff20;border-radius:50%;right:-80px;top:-190px;box-shadow:0 0 0 45px #ffffff08,0 0 0 95px #ffffff06}.hero-inner{position:relative;z-index:1;max-width:1180px;margin:auto;padding:62px 20px 56px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:38px}.eyebrow{display:inline-flex;background:#ffffff19;border:1px solid #ffffff2e;border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:700;color:#f9d98c}.hero h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;letter-spacing:-1.8px;margin:18px 0}.hero h1 em{font-style:normal;color:var(--gold)}.hero p{color:#e2eee8;max-width:610px;font-size:1.08rem}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.hero .btn-primary{background:var(--gold);color:#18362a}.hero .btn-light{background:#ffffff17;color:white;border:1px solid #ffffff3b}.hero-card{background:#fff;color:var(--ink);border-radius:24px;padding:22px;box-shadow:0 24px 60px #002c1e45;transform:rotate(1deg)}.hero-card h3{margin:2px 0 4px}.hero-card p{color:var(--muted);font-size:.9rem;margin:0 0 16px}.mini-list{display:grid;gap:10px}.mini-item{display:flex;align-items:center;gap:12px;background:#f5f8f6;border:1px solid #e8eee9;border-radius:14px;padding:12px}.mini-icon{width:42px;height:42px;border-radius:12px;background:#dff0e6;display:grid;place-items:center;font-size:1.3rem}.mini-item strong{display:block;font-size:.93rem}.mini-item small{color:var(--muted)}.section{padding:48px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:22px}.section-head h2{font-size:clamp(1.55rem,3vw,2.2rem);margin:0;letter-spacing:-.7px}.section-head p{margin:6px 0 0;color:var(--muted)}.searchbar{display:flex;gap:10px;max-width:580px;margin:0 0 24px}.searchbar input{flex:1;min-width:0}.field, input, select, textarea{width:100%;border:1px solid #d9e4dd;border-radius:11px;padding:12px 13px;background:#fff;color:var(--ink);outline:none}.field:focus,input:focus,select:focus,textarea:focus{border-color:#5ba687;box-shadow:0 0 0 3px #0b5d4513}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #e5ece7;border-radius:18px;padding:20px;box-shadow:0 4px 18px #103c2510}.business-card{display:flex;flex-direction:column;gap:10px}.biz-top{display:flex;align-items:center;gap:12px}.biz-icon{width:52px;height:52px;display:grid;place-items:center;background:#e6f3eb;border-radius:15px;font-size:1.5rem;flex-shrink:0}.biz-top h3{font-size:1.02rem;margin:0}.biz-top small{color:var(--muted)}.badge{font-size:.75rem;font-weight:750;color:#176647;background:#e5f5eb;border-radius:999px;padding:5px 9px;display:inline-block;width:max-content}.business-card p{color:var(--muted);font-size:.92rem;margin:0;flex:1}.biz-actions{display:flex;gap:8px;margin-top:6px}.biz-actions .btn{flex:1;padding:10px 8px;font-size:.88rem}.empty{padding:28px;text-align:center;color:var(--muted);background:white;border:1px dashed #cad9cf;border-radius:16px;grid-column:1/-1}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step-num{width:38px;height:38px;background:var(--green);color:white;border-radius:12px;display:grid;place-items:center;font-weight:850;margin-bottom:13px}.card h3{margin:0 0 7px}.card p{margin:0;color:var(--muted)}.join-section{background:#eaf3ed}.join-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}.join-copy{padding:10px 0}.join-copy h2{font-size:2.1rem;line-height:1.15;margin:0 0 14px}.checkline{display:flex;gap:10px;margin:14px 0;color:#30443a}.check{color:var(--green);font-weight:900}.form-card{background:#fff;border:1px solid #dce8df;border-radius:20px;padding:24px;box-shadow:var(--shadow)}.form-card h3{margin:0 0 5px}.form-card .sub{color:var(--muted);font-size:.9rem;margin:0 0 18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-group{display:grid;gap:6px}.form-group label{font-size:.87rem;font-weight:700}.full{grid-column:1/-1}.form-note{font-size:.78rem;color:var(--muted);margin-top:10px}.notice{display:none;border-radius:12px;padding:12px 14px;margin:0 0 14px;background:#e5f5eb;color:#14583c;font-weight:650}.notice.show{display:block}.footer{background:#092f25;color:#dcebe3;padding:36px 0 18px}.footer-main{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer .brand{color:#fff}.footer .brand small{color:#c2d6ca}.footer p{max-width:420px;color:#bfd3c7}.footer-bottom{border-top:1px solid #ffffff20;margin-top:25px;padding-top:15px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#b4cbbd;font-size:.82rem}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,120px);opacity:0;background:#123e2f;color:white;padding:13px 18px;border-radius:12px;z-index:10;box-shadow:var(--shadow);transition:.25s;max-width:90%;text-align:center}.toast.show{transform:translate(-50%,0);opacity:1}.modal-backdrop{display:none;position:fixed;inset:0;background:#071f17aa;z-index:20;align-items:center;justify-content:center;padding:18px}.modal-backdrop.show{display:flex}.modal{background:#fff;border-radius:18px;max-width:520px;width:100%;padding:24px;max-height:90vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.close{border:0;background:#edf3ef;border-radius:9px;padding:7px 11px;font-weight:800}.modal p{color:var(--muted)}.hidden{display:none!important}
+@media(max-width:850px){.navlinks{display:none;position:absolute;top:70px;left:12px;right:12px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:15px;padding:15px;flex-direction:column;align-items:stretch}.navlinks.open{display:flex}.navlinks a,.navlinks button{padding:9px}.menu-btn{display:inline-flex}.nav>.btn{display:none}.hero-inner{grid-template-columns:1fr;padding-top:45px}.hero-card{max-width:500px;transform:none}.grid{grid-template-columns:repeat(2,1fr)}.join-layout{grid-template-columns:1fr}.section{padding:38px 0}}
+@media(max-width:570px){.topbar{padding:8px 15px;font-size:.76rem}.nav{padding:11px 15px}.brand{font-size:1rem}.logo{width:38px;height:38px}.container{padding:0 15px}.hero-inner{padding:38px 15px 42px;gap:28px}.hero h1{font-size:2.45rem;letter-spacing:-1.2px}.hero p{font-size:1rem}.hero-actions .btn{flex:1}.section-head{display:block}.section-head .btn{margin-top:13px}.grid,.steps{grid-template-columns:1fr}.searchbar{flex-direction:column}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.form-card{padding:18px}.join-copy h2{font-size:1.8rem}.biz-actions .btn{font-size:.82rem}.footer{padding-top:28px}}
+.searchbar{max-width:900px}.searchbar input{flex:2}.searchbar select{flex:1;min-width:0}
+.tabs{display:flex;gap:8px;margin:0 0 16px}.tab{flex:1;border:1px solid var(--line);background:#fff;color:var(--green);border-radius:11px;padding:10px;font-weight:750}.tab.active{background:var(--green);color:#fff;border-color:var(--green)}
+.notice.error{background:#fdeceb;color:#8a2a22}
+.status{font-size:.75rem;font-weight:750;border-radius:999px;padding:5px 9px;display:inline-block;white-space:nowrap}.status.pending{background:#fff3d6;color:#7a5a07}.status.approved{background:#e5f5eb;color:#176647}.status.rejected{background:#fdeceb;color:#8a2a22}
+.mylist{display:grid;gap:10px;margin-top:12px}.myitem{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:12px}.myitem small{color:var(--muted);display:block}
+.banner{grid-column:1/-1;background:#fff8e6;border:1px solid #f0dca4;color:#6b5206;border-radius:14px;padding:12px 14px;font-size:.9rem}
+.userbar{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#f3f8f5;border-radius:12px;padding:10px 12px;margin-bottom:16px;font-size:.88rem}.userbar span{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.btn[disabled]{opacity:.6;cursor:not-allowed}
+
+.biz-icon{overflow:hidden;position:relative}.biz-icon img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+</style>
+</head>
+<body>
+<div class="topbar"><span data-en="🌍 Starting in Arewa, open to the world" data-ha="🌍 Mun fara a Arewa, muna maraba da duniya">🌍 Starting in Arewa, open to the world</span><button class="lang" id="langBtn" type="button">Hausa</button></div>
+<div class="navwrap">
+  <nav class="nav">
+    <a class="brand" href="#home" aria-label="ArewaBiz Connect home"><span class="logo">ABC</span><span>ArewaBiz Connect<small data-en="Connecting Businesses. Creating Opportunities." data-ha="Haɗa Kasuwanci. Ƙirƙirar Dama.">Connecting Businesses. Creating Opportunities.</small></span></a>
+    <div class="navlinks" id="navlinks">
+      <a href="#home" data-en="Home" data-ha="Gida">Home</a><a href="#businesses" data-en="Businesses" data-ha="Kasuwanci">Businesses</a><a href="#how" data-en="How it works" data-ha="Yadda yake aiki">How it works</a><a href="#join" data-en="Join us" data-ha="Shiga mu">Join us</a>
+    </div>
+    <button class="btn btn-primary" onclick="goJoin()" data-en="Get started" data-ha="Fara yanzu">Get started</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </nav>
+</div>
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow" data-en="YOUR COMMUNITY. YOUR OPPORTUNITY." data-ha="AL'UMMARKA. DAMARKA.">YOUR COMMUNITY. YOUR OPPORTUNITY.</span>
+      <h1 data-en="Good business starts with a <em>connection.</em>" data-ha="Kyakkyawan kasuwanci yana farawa da <em>haɗin kai.</em>">Good business starts with a <em>connection.</em></h1>
+      <p data-en="Discover local businesses, showcase what you do, and connect with customers and opportunities — from Arewa to everywhere." data-ha="Gano kasuwancin kusa da kai, nuna abin da kake yi, ka haɗu da kwastomomi da damammaki — daga Arewa zuwa ko'ina.">Discover local businesses, showcase what you do, and connect with customers and opportunities — from Arewa to everywhere.</p>
+      <div class="hero-actions"><a href="#businesses" class="btn btn-primary" data-en="Explore businesses →" data-ha="Duba kasuwanci →">Explore businesses →</a><button class="btn btn-light" onclick="goJoin()" data-en="List your business" data-ha="Sanya kasuwancinka">List your business</button></div>
+    </div>
+    <div class="hero-card">
+      <h3 data-en="A place for business to grow" data-ha="Wurin bunƙasa kasuwanci">A place for business to grow</h3>
+      <p data-en="Meet the people and services around you." data-ha="Haɗu da mutane da ayyukan da ke kusa da kai.">Meet the people and services around you.</p>
+      <div class="mini-list">
+        <div class="mini-item"><div class="mini-icon">🏪</div><div><strong data-en="Local business directory" data-ha="Jerin kasuwancin gida">Local business directory</strong><small data-en="Find shops and services" data-ha="Nemo shaguna da ayyuka">Find shops and services</small></div></div>
+        <div class="mini-item"><div class="mini-icon">🤝</div><div><strong data-en="Direct connections" data-ha="Haɗin kai kai tsaye">Direct connections</strong><small data-en="Contact by WhatsApp or phone" data-ha="Tuntuɓa ta WhatsApp ko waya">Contact by WhatsApp or phone</small></div></div>
+        <div class="mini-item"><div class="mini-icon">📈</div><div><strong data-en="More opportunities" data-ha="Ƙarin damammaki">More opportunities</strong><small data-en="Help good businesses get noticed" data-ha="Taimaka wa kasuwanci su samu suna">Help good businesses get noticed</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="businesses">
+  <div class="container">
+    <div class="section-head"><div><h2 data-en="Discover businesses" data-ha="Gano kasuwanci">Discover businesses</h2><p data-en="Find trusted local businesses, or add your own below." data-ha="Nemo amintattun kasuwancin gida, ko ƙara naka a ƙasa.">Find trusted local businesses, or add your own below.</p></div><button class="btn btn-primary" onclick="goJoin()" data-en="+ Add a business" data-ha="+ Ƙara kasuwanci">+ Add a business</button></div>
+    <div class="searchbar">
+      <input id="searchInput" type="search" data-ph-en="Search business, service or location…" data-ph-ha="Nemo kasuwanci, aiki ko wuri…" placeholder="Search business, service or location…">
+      <select id="categoryFilter" aria-label="Filter by category"><option value="all" data-en="All categories" data-ha="Dukkan rukuni">All categories</option></select>
+      <select id="stateFilter" aria-label="Filter by state"><option value="all" data-en="All states" data-ha="Dukkan jihohi">All states</option></select>
+    </div>
+    <div class="grid" id="businessGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="how" style="background:#fff">
+  <div class="container">
+    <div class="section-head"><div><h2 data-en="Simple to get started" data-ha="Sauƙin farawa">Simple to get started</h2><p data-en="Built to help people find one another and do business." data-ha="An tsara shi domin taimaka wa mutane su haɗu su yi kasuwanci.">Built to help people find one another and do business.</p></div></div>
+    <div class="steps">
+      <div class="card"><div class="step-num">1</div><h3 data-en="Create your account" data-ha="Buɗe asusunka">Create your account</h3><p data-en="Business owners sign up free with an email and password." data-ha="Masu kasuwanci su yi rajista kyauta da imel da kalmar sirri.">Business owners sign up free with an email and password.</p></div>
+      <div class="card"><div class="step-num">2</div><h3 data-en="Submit your business" data-ha="Aika kasuwancinka">Submit your business</h3><p data-en="Add your details. We review every listing before it goes public." data-ha="Saka bayananka. Muna duba kowane kasuwanci kafin a nuna shi a bainar jama'a.">Add your details. We review every listing before it goes public.</p></div>
+      <div class="card"><div class="step-num">3</div><h3 data-en="Connect directly" data-ha="Haɗu kai tsaye">Connect directly</h3><p data-en="Customers contact you by WhatsApp or phone to ask about products or services." data-ha="Kwastomomi na tuntuɓarka ta WhatsApp ko waya don tambaya game da kaya ko ayyuka.">Customers contact you by WhatsApp or phone to ask about products or services.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section join-section" id="join">
+  <div class="container join-layout">
+    <div class="join-copy">
+      <span class="badge" data-en="JOIN THE COMMUNITY" data-ha="SHIGA AL'UMMA">JOIN THE COMMUNITY</span>
+      <h2 data-en="Your next connection could open a door." data-ha="Haɗinka na gaba zai iya buɗe maka wata dama.">Your next connection could open a door.</h2>
+      <p data-en="Create a free account to list your business. New listings are reviewed before they appear publicly." data-ha="Buɗe asusu kyauta domin saka kasuwancinka. Ana duba sabbin kasuwanci kafin su bayyana a bainar jama'a.">Create a free account to list your business. New listings are reviewed before they appear publicly.</p>
+      <div class="checkline"><span class="check">✓</span><span data-en="Free to join and list" data-ha="Kyauta ne a shiga a saka kasuwanci">Free to join and list</span></div>
+      <div class="checkline"><span class="check">✓</span><span data-en="English and Hausa interface" data-ha="Fuskar amfani da Turanci da Hausa">English and Hausa interface</span></div>
+      <div class="checkline"><span class="check">✓</span><span data-en="Direct contact through WhatsApp and phone" data-ha="Tuntuɓa kai tsaye ta WhatsApp da waya">Direct contact through WhatsApp and phone</span></div>
+    </div>
+
+    <div class="form-card">
+      <!-- Logged-out view -->
+      <div id="authBox">
+        <h3 data-en="Business owner account" data-ha="Asusun mai kasuwanci">Business owner account</h3>
+        <p class="sub" data-en="Sign up or log in to list your business." data-ha="Yi rajista ko ka shiga domin saka kasuwancinka.">Sign up or log in to list your business.</p>
+        <div class="tabs">
+          <button type="button" class="tab active" id="tabSignup" data-en="Sign up" data-ha="Yi rajista">Sign up</button>
+          <button type="button" class="tab" id="tabSignin" data-en="Log in" data-ha="Shiga">Log in</button>
+        </div>
+        <div id="authNotice" class="notice" role="status"></div>
+        <form id="authForm">
+          <div class="form-grid">
+            <div class="form-group full" id="nameGroup"><label for="fullName" data-en="Full name" data-ha="Cikakken suna">Full name</label><input id="fullName" autocomplete="name" data-ph-en="Your name" data-ph-ha="Sunanka" placeholder="Your name"></div>
+            <div class="form-group full"><label for="authEmail" data-en="Email" data-ha="Imel">Email</label><input id="authEmail" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+            <div class="form-group full"><label for="authPassword" data-en="Password" data-ha="Kalmar sirri">Password</label><input id="authPassword" type="password" required minlength="8" autocomplete="new-password" data-ph-en="At least 8 characters" data-ph-ha="Aƙalla haruffa 8" placeholder="At least 8 characters"></div>
+            <div class="full"><button class="btn btn-primary" style="width:100%" type="submit" id="authSubmit" data-en="Create account" data-ha="Buɗe asusu">Create account</button></div>
+          </div>
+        </form>
+        <p id="consentNote" style="margin:14px 0 0;text-align:center;font-size:.82rem;color:var(--muted)"><span data-en="By creating an account you agree to our" data-ha="Ta hanyar buɗe asusu, ka amince da">By creating an account you agree to our</span> <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--green);font-weight:700" data-en="Terms and Privacy Policy" data-ha="Sharuɗɗa da Manufar Sirri">Terms and Privacy Policy</a>.</p>
+        <p style="margin:14px 0 0;text-align:center"><a href="#" id="forgotLink" class="hidden" style="color:var(--green);font-weight:700" data-en="Forgot password?" data-ha="Ka manta kalmar sirri?">Forgot password?</a></p>
+      </div>
+
+      <!-- Set new password view (after reset email link) -->
+      <div id="resetBox" class="hidden">
+        <h3 data-en="Set a new password" data-ha="Saka sabuwar kalmar sirri">Set a new password</h3>
+        <p class="sub" data-en="Choose a new password for your account." data-ha="Zaɓi sabuwar kalmar sirri don asusunka.">Choose a new password for your account.</p>
+        <div id="resetNotice" class="notice" role="status"></div>
+        <form id="resetForm">
+          <div class="form-grid">
+            <div class="form-group full"><label for="newPassword" data-en="New password" data-ha="Sabuwar kalmar sirri">New password</label><input id="newPassword" type="password" required minlength="8" autocomplete="new-password" data-ph-en="At least 8 characters" data-ph-ha="Aƙalla haruffa 8" placeholder="At least 8 characters"></div>
+            <div class="full"><button class="btn btn-primary" style="width:100%" type="submit" id="resetBtn" data-en="Save new password" data-ha="Ajiye sabuwar kalmar sirri">Save new password</button></div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Logged-in view -->
+      <div id="bizBox" class="hidden">
+        <div class="userbar"><span id="userEmail"></span><button type="button" class="btn btn-outline" id="logoutBtn" style="padding:7px 12px" data-en="Log out" data-ha="Fita">Log out</button></div>
+        <h3 data-en="List your business" data-ha="Saka kasuwancinka">List your business</h3>
+        <p class="sub" data-en="Fill in your business details. We will review it before it appears publicly." data-ha="Cika bayanan kasuwancinka. Za mu duba shi kafin ya bayyana a bainar jama'a.">Fill in your business details. We will review it before it appears publicly.</p>
+        <div id="bizNotice" class="notice" role="status"></div>
+        <form id="bizForm">
+          <div class="form-grid">
+            <div class="form-group full"><label for="bizName" data-en="Business name" data-ha="Sunan kasuwanci">Business name</label><input id="bizName" required maxlength="120" data-ph-en="Your business name" data-ph-ha="Sunan kasuwancinka" placeholder="Your business name"></div>
+            <div class="form-group full"><label for="bizCategory" data-en="Category" data-ha="Rukuni">Category</label><select id="bizCategory" required></select></div>
+            <div class="form-group"><label for="bizState" data-en="State" data-ha="Jiha">State</label><select id="bizState" required></select></div>
+            <div class="form-group"><label for="bizCity" data-en="Town / City" data-ha="Gari">Town / City</label><input id="bizCity" required maxlength="80" data-ph-en="e.g. Bauchi" data-ph-ha="misali Bauchi" placeholder="e.g. Bauchi"></div>
+            <div class="form-group full"><label for="bizAddress" data-en="Address" data-ha="Adireshi">Address</label><input id="bizAddress" required maxlength="200" data-ph-en="Street or landmark" data-ph-ha="Titi ko wani sanannen wuri" placeholder="Street or landmark"></div>
+            <div class="form-group"><label for="bizPhone" data-en="Phone" data-ha="Lambar waya">Phone</label><input id="bizPhone" type="tel" required maxlength="20" autocomplete="tel" placeholder="080…"></div>
+            <div class="form-group"><label for="bizWhatsapp" data-en="WhatsApp" data-ha="WhatsApp">WhatsApp</label><input id="bizWhatsapp" type="tel" required maxlength="20" placeholder="080…"></div>
+            <div class="form-group full"><label for="bizEmail" data-en="Business email (optional)" data-ha="Imel na kasuwanci (ba dole ba)">Business email (optional)</label><input id="bizEmail" type="email" maxlength="120" placeholder="business@example.com"></div>
+            <div class="form-group full"><label for="bizLogo" data-en="Photo of your shop or main product" data-ha="Hoton shagonka ko babban kayanka">Photo of your shop or main product</label><small style="display:block;color:var(--muted);margin:2px 0 8px" data-en="Upload a clear photo of your shop or your main product (for example, your eggs). Photos of people are not accepted." data-ha="Ka saka hoto mai haske na shagonka ko babban kayanka (misali, ƙwai). Ba a karɓar hotunan mutane.">Upload a clear photo of your shop or your main product (for example, your eggs). Photos of people are not accepted.</small><input id="bizLogo" type="file" accept="image/jpeg,image/png,image/webp"><img id="logoPreview" class="hidden" alt="" style="width:84px;height:84px;object-fit:cover;border-radius:14px;margin-top:8px;border:1px solid var(--line)"></div>
+            <div class="form-group full"><label for="bizDescription" data-en="What do you offer?" data-ha="Me kake bayarwa?">What do you offer?</label><textarea id="bizDescription" required rows="3" maxlength="500" data-ph-en="Briefly describe your products or services" data-ph-ha="Takaitaccen bayani game da kayanka ko ayyukanka" placeholder="Briefly describe your products or services"></textarea></div>
+            <div class="full"><button class="btn btn-primary" style="width:100%" type="submit" id="bizSubmit" data-en="Submit for review" data-ha="Aika domin dubawa">Submit for review</button><button class="btn btn-outline hidden" style="width:100%;margin-top:10px" type="button" id="cancelEditBtn" data-en="Cancel editing" data-ha="Soke gyara">Cancel editing</button></div>
+          </div>
+        </form>
+        <div id="mineWrap" class="hidden">
+          <h3 style="margin:24px 0 0" data-en="My listings" data-ha="Kasuwancina">My listings</h3>
+          <div class="mylist" id="mineList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-main"><div><a class="brand" href="#home"><span class="logo">ABC</span><span>ArewaBiz Connect<small>Connecting Businesses. Creating Opportunities.</small></span></a><p data-en="A community-first business connection platform, starting in Arewa and built with a global outlook." data-ha="Dandalin haɗa kasuwanci mai farawa daga Arewa, tare da hangen nesa na duniya.">A community-first business connection platform, starting in Arewa and built with a global outlook.</p></div><div><strong data-en="Explore" data-ha="Duba">Explore</strong><p><a href="#businesses" data-en="Business directory" data-ha="Jerin kasuwanci">Business directory</a><br><a href="#how" data-en="How it works" data-ha="Yadda yake aiki">How it works</a><br><a href="#join" data-en="Join the community" data-ha="Shiga al'umma">Join the community</a><br><a href="privacy.html" data-en="Privacy and Terms" data-ha="Sirri da Sharuɗɗa">Privacy and Terms</a></p></div></div><div class="footer-bottom"><span>© <span id="year"></span> ArewaBiz Connect</span><span data-en="Beta • Built to grow" data-ha="Gwaji • An tsara shi domin bunƙasa">Beta • Built to grow</span></div></div></footer>
+<div class="toast" id="toast" role="status"></div>
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><div class="modal-head"><h2 id="modalTitle" style="margin:0"></h2><button class="close" onclick="closeModal()" aria-label="Close">✕</button></div><p id="modalText"></p><button class="btn btn-primary" onclick="closeModal()" style="width:100%;margin-top:12px" data-en="Close" data-ha="Rufe">Close</button></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL='https://jrzywdmviyiassxtslzl.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impyenl3ZG12aXlpYXNzeHRzbHpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMxMTY0MTgsImV4cCI6MjEwODY5MjQxOH0.kxDGVjLl-_O-I6Zx21mIZ8oVUtvV9fJEu8KHFLdr-5E';
+const sb=(window.supabase&&window.supabase.createClient)?window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY):null;
+
+const STATES=['Abia','Adamawa','Akwa Ibom','Anambra','Bauchi','Bayelsa','Benue','Borno','Cross River','Delta','Ebonyi','Edo','Ekiti','Enugu','FCT Abuja','Gombe','Imo','Jigawa','Kaduna','Kano','Katsina','Kebbi','Kogi','Kwara','Lagos','Nasarawa','Niger','Ogun','Ondo','Osun','Oyo','Plateau','Rivers','Sokoto','Taraba','Yobe','Zamfara'];
+const ICONS={'Agriculture':'🌾','Arts and Entertainment':'🎭','Automobile Services':'🚗','Baby and Childrens Items':'🧸','Books and Educational Materials':'📚','Building and Construction':'🏗️','Building Materials':'🧱','Computers and Accessories':'💻','Education':'🎓','Electronics and Gadgets':'🔌','Events and Entertainment':'🎉','Farm Produce and Livestock':'🐄','Fashion and Beauty':'🧵','Fashion Items for Sale':'👗','Food and Catering':'🍲','Furniture and Home Appliances':'🛋️','Health and Medical':'🏥','Home Services':'🛠️','Hotels and Hospitality':'🏨','Jobs and Recruitment':'💼','Land and Plots':'📍','Manufacturing':'🏭','Other':'🏪','Other Items and Services':'🏪','Phones and Accessories':'📱','Printing and Graphics':'🖨️','Professional Services':'👔','Real Estate and Houses':'🏠','Rentals and Leasing':'🔑','Retail and Shopping':'🛒','Second-Hand Items':'♻️','Spare Parts and Auto Accessories':'⚙️','Sports and Fitness Equipment':'🏋️','Technology and ICT':'🖥️','Transportation':'🚚','Vehicles and Motorcycles':'🏍️'};
+const sampleBusinesses=[
+ {id:'s1',business_name:'Hajara Foods & Grains',category:'Food and Catering',city:'Bauchi',state:'Bauchi',phone:'08012345678',description:'Grains, spices and everyday food essentials for homes and small retailers.',sample:true},
+ {id:'s2',business_name:'Arewa Style House',category:'Fashion and Beauty',city:'Kano',state:'Kano',phone:'08023456789',description:'Traditional and contemporary clothing, fabrics and tailoring services.',sample:true},
+ {id:'s3',business_name:'NorthTech Digital Services',category:'Technology and ICT',city:'Abuja',state:'FCT Abuja',phone:'08034567890',description:'Website setup, digital support and practical technology services for small businesses.',sample:true},
+ {id:'s4',business_name:'Aminu Repairs & Services',category:'Home Services',city:'Kaduna',state:'Kaduna',phone:'08045678901',description:'Reliable home and small-office repair services. Contact to ask about availability.',sample:true}
+];
+let editingId=null,recovering=false,language='en',categories=[],businesses=[],mine=[],currentUser=null,authMode='signup',loadFailed=false,loading=true;
+const tr={
+ en:{demo:'Demo listing',verified:'✓ Verified',contact:'WhatsApp',call:'Call',noResults:'No businesses match your search yet. Be the first to add one!',noPhone:'This listing has no contact number yet.',demoBanner:'These are demo listings. Real businesses will appear here after they are approved.',loading:'Loading businesses…',loadFail:'Could not load businesses. Please check your internet and refresh.',catFail:'Could not load categories. Please refresh.',noLocation:'Location not provided',pending:'Pending review',approved:'Approved',rejected:'Not approved',submittedTitle:'Business submitted',submittedText:'Thank you! Your business has been sent for review. It will appear in the directory once approved.',checkEmail:'Account created. Please check your email to confirm your account, then log in.',welcome:'Account created. You can now list your business.',badLogin:'Wrong email or password. Please try again.',genericErr:'Something went wrong. Please try again.',signedAs:'Signed in as ',fillRequired:'Please fill in all required fields.',noSupabase:'The app could not connect to the server. Please check your internet and refresh.',already:'This email may already be registered. Try logging in.',enterEmail:'Type your email in the Email box first, then tap Forgot password.',edit:'Edit',report:'Report this listing',badImage:'Please choose a picture file (JPG, PNG or WebP).',uploadFail:'Could not upload the picture. Please try again or choose another picture.',saveChanges:'Save changes',submitReview:'Submit for review',editing:'Editing: ',editWarn:'After you save, this listing is hidden until it is approved again.',savedEditTitle:'Changes saved',savedEditText:'Your changes were saved. The listing will be reviewed again before it shows publicly.',resetSent:'If this email has an account, we have sent a link to reset your password. Please check your email.',resetDone:'Your password has been changed. You can now list your business.'},
+ ha:{demo:'Misalin kasuwanci',verified:'✓ An tabbatar',contact:'WhatsApp',call:'Kira',noResults:'Ba a sami kasuwancin da ya dace da bincikenka ba. Ka fara saka naka!',noPhone:'Ba a saka lambar waya a wannan kasuwancin ba tukuna.',demoBanner:'Waɗannan misalai ne kawai. Kasuwanci na gaske za su bayyana a nan bayan an amince da su.',loading:'Ana ɗaukar kasuwanci…',loadFail:'Ba a iya ɗaukar kasuwanci ba. Ka duba intanet ɗinka ka sake buɗe shafin.',catFail:'Ba a iya ɗaukar rukunai ba. Ka sake buɗe shafin.',noLocation:'Ba a bayar da wuri ba',pending:'Ana jiran dubawa',approved:'An amince',rejected:'Ba a amince ba',submittedTitle:'An aika kasuwanci',submittedText:'Na gode! An aika kasuwancinka domin dubawa. Zai bayyana a jerin kasuwanci da zarar an amince da shi.',checkEmail:'An buɗe asusu. Ka duba imel ɗinka domin tabbatar da asusun, sannan ka shiga.',welcome:'An buɗe asusu. Yanzu za ka iya saka kasuwancinka.',badLogin:'Imel ko kalmar sirri ba daidai ba ne. Ka sake gwadawa.',genericErr:'An samu matsala. Ka sake gwadawa.',signedAs:'An shiga a matsayin ',fillRequired:'Ka cika dukkan abubuwan da ake buƙata.',noSupabase:'Aikace-aikacen bai iya haɗuwa da uwar garke ba. Ka duba intanet ɗinka ka sake buɗe shafin.',already:'Wataƙila an riga an yi rajista da wannan imel. Ka gwada shiga.',enterEmail:'Ka rubuta imel ɗinka a akwatin Imel tukuna, sannan ka danna Ka manta kalmar sirri.',edit:'Gyara',report:'Kai rahoton wannan kasuwanci',badImage:'Ka zaɓi hoto (JPG, PNG ko WebP).',uploadFail:'Ba a iya ɗora hoton ba. Ka sake gwadawa ko ka zaɓi wani hoto.',saveChanges:'Ajiye canje-canje',submitReview:'Aika domin dubawa',editing:'Ana gyara: ',editWarn:'Bayan ka ajiye, kasuwancin zai ɓoyu har sai an sake amincewa da shi.',savedEditTitle:'An ajiye canje-canje',savedEditText:'An ajiye canje-canjenka. Za a sake duba kasuwancin kafin ya bayyana a bainar jama\'a.',resetSent:'Idan wannan imel yana da asusu, mun aika hanyar haɗi domin sake saita kalmar sirri. Ka duba imel ɗinka.',resetDone:'An canza kalmar sirrinka. Yanzu za ka iya saka kasuwancinka.'}
+};
+const $=id=>document.getElementById(id);
+function safeText(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function showToast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3400)}
+function goJoin(){$('join').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const el=currentUser?$('bizName'):$('authEmail');el.focus({preventScroll:true})},450)}
+function openModal(title,text){$('modalTitle').textContent=title;$('modalText').textContent=text;$('modal').classList.add('show')}
+function closeModal(){$('modal').classList.remove('show')}
+function waNumber(p){let d=String(p||'').replace(/\D/g,'');if(!d)return '';if(d.startsWith('00'))d=d.slice(2);if(d.startsWith('0'))d='234'+d.slice(1);else if(d.length===10&&/^[789]/.test(d))d='234'+d;return d}
+function setNotice(el,msg,isError){el.textContent=msg;el.classList.toggle('error',!!isError);el.classList.add('show')}
+function clearNotice(el){el.textContent='';el.classList.remove('show','error')}
+function orNull(v){v=(v||'').trim();return v?v:null}
+
+/* ---------- Directory ---------- */
+function fillSelects(){
+ const cf=$('categoryFilter'),bc=$('bizCategory'),sf=$('stateFilter'),bs=$('bizState');
+ const keepC=cf.value,keepS=sf.value;
+ cf.querySelectorAll('option:not([value="all"])').forEach(o=>o.remove());
+ sf.querySelectorAll('option:not([value="all"])').forEach(o=>o.remove());
+ categories.forEach(n=>cf.appendChild(new Option(n,n)));
+ STATES.forEach(n=>sf.appendChild(new Option(n,n)));
+ if([...cf.options].some(o=>o.value===keepC))cf.value=keepC;
+ if([...sf.options].some(o=>o.value===keepS))sf.value=keepS;
+ const bcv=bc.value,bsv=bs.value;
+ bc.innerHTML='';bs.innerHTML='';
+ const p1=new Option(language==='en'?'Choose a category':'Zaɓi rukuni','');p1.disabled=true;p1.selected=true;bc.appendChild(p1);
+ const p2=new Option(language==='en'?'Choose a state':'Zaɓi jiha','');p2.disabled=true;p2.selected=true;bs.appendChild(p2);
+ categories.forEach(n=>bc.appendChild(new Option(n,n)));
+ STATES.forEach(n=>bs.appendChild(new Option(n,n)));
+ if(bcv)bc.value=bcv;if(bsv)bs.value=bsv;
+}
+async function loadCategories(){
+ if(!sb){return}
+ try{
+  const {data,error}=await sb.from('business_categories').select('name').order('name');
+  if(error)throw error;
+  categories=(data||[]).map(r=>r.name);
+  fillSelects();
+ }catch(e){console.error(e);showToast(tr[language].catFail)}
+}
+async function loadBusinesses(){
+ if(!sb){loading=false;loadFailed=true;renderBusinesses();return}
+ try{
+  const {data,error}=await sb.from('businesses').select('id,business_name,category,description,state,city,address,phone,whatsapp,logo_url,verified,created_at').eq('status','approved').order('created_at',{ascending:false});
+  if(error)throw error;
+  businesses=data||[];loadFailed=false;
+ }catch(e){console.error(e);loadFailed=true}
+ loading=false;renderBusinesses();
+}
+function renderBusinesses(){
+ const grid=$('businessGrid');const T=tr[language];
+ if(loading){grid.innerHTML=`<div class="empty">${T.loading}</div>`;return}
+ if(loadFailed){grid.innerHTML=`<div class="empty">${T.loadFail}</div>`;return}
+ const q=($('searchInput').value||'').toLowerCase().trim();
+ const cat=$('categoryFilter').value,st=$('stateFilter').value;
+ const demo=businesses.length===0;
+ const source=demo?sampleBusinesses:businesses;
+ const list=source.filter(b=>(cat==='all'||b.category===cat)&&(st==='all'||b.state===st)&&[b.business_name,b.category,b.city,b.state,b.address,b.description].join(' ').toLowerCase().includes(q));
+ grid.innerHTML=demo?`<div class="banner">${T.demoBanner}</div>`:'';
+ if(!list.length){grid.insertAdjacentHTML('beforeend',`<div class="empty">${T.noResults}</div>`);return}
+ list.forEach(b=>{
+  const icon=ICONS[b.category]||'🏪';
+  const wa=waNumber(b.whatsapp||b.phone),call=waNumber(b.phone||b.whatsapp);
+  const place=[b.city,b.state].filter(Boolean).join(', ')||T.noLocation;
+  const card=document.createElement('article');card.className='card business-card';
+  card.innerHTML=`<div class="biz-top"><div class="biz-icon">${b.logo_url?`<img src="${safeText(b.logo_url)}" alt="" loading="lazy">`:icon}</div><div><h3>${safeText(b.business_name)}</h3><small>📍 ${safeText(place)}</small></div></div><div><span class="badge">${safeText(b.category||'Business')}</span>${b.verified?` <span class="badge" style="background:#fff3d6;color:#7a5a07">${T.verified}</span>`:''}</div><p>${safeText(b.description||'')}</p>${b.sample?`<small style="color:var(--muted)">${T.demo}</small>`:''}<div class="biz-actions"><a class="btn btn-light" ${wa?`href="https://wa.me/${wa}" target="_blank" rel="noopener"`:'href="#" data-nophone="1"'}>◉ ${T.contact}</a><a class="btn btn-outline" ${call?`href="tel:+${call}"`:'href="#" data-nophone="1"'}>☎ ${T.call}</a></div>${b.sample?'':`<div style="margin-top:10px"><a style="color:var(--muted);font-size:.82rem" href="mailto:connectarewabiz@gmail.com?subject=${encodeURIComponent('Report listing: '+b.business_name)}">⚑ ${T.report}</a></div>`}`;
+  card.querySelectorAll('[data-nophone]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showToast(T.noPhone)}));
+  grid.appendChild(card);
+ });
+}
+
+/* ---------- Account ---------- */
+function setAuthMode(mode){
+ authMode=mode;
+ $('tabSignup').classList.toggle('active',mode==='signup');
+ $('tabSignin').classList.toggle('active',mode==='signin');
+ $('nameGroup').classList.toggle('hidden',mode!=='signup');
+ $('forgotLink').classList.toggle('hidden',mode!=='signin');
+ $('consentNote').classList.toggle('hidden',mode!=='signup');
+ $('authPassword').autocomplete=mode==='signup'?'new-password':'current-password';
+ const b=$('authSubmit');
+ b.dataset.en=mode==='signup'?'Create account':'Log in';
+ b.dataset.ha=mode==='signup'?'Buɗe asusu':'Shiga';
+ b.textContent=b.dataset[language];
+ clearNotice($('authNotice'));
+}
+function setUser(u){
+ const same=(currentUser&&u&&currentUser.id===u.id);
+ currentUser=u;
+ $('authBox').classList.toggle('hidden',!!u||recovering);
+ $('bizBox').classList.toggle('hidden',!u||recovering);
+ $('resetBox').classList.toggle('hidden',!recovering);
+ if(u){$('userEmail').textContent=tr[language].signedAs+(u.email||'');if(!same)setTimeout(loadMine,0)}
+ else{mine=[];editingId=null;renderMine()}
+}
+async function loadMine(){
+ if(!sb||!currentUser)return;
+ try{
+  const {data,error}=await sb.from('businesses').select('id,business_name,category,description,state,city,address,phone,whatsapp,email,logo_url,status,created_at').eq('owner_id',currentUser.id).order('created_at',{ascending:false});
+  if(error)throw error;
+  mine=data||[];
+ }catch(e){console.error(e);mine=[]}
+ renderMine();
+}
+function renderMine(){
+ const wrap=$('mineWrap'),list=$('mineList');
+ if(!mine.length){wrap.classList.add('hidden');list.innerHTML='';return}
+ wrap.classList.remove('hidden');
+ const T=tr[language];
+ list.innerHTML=mine.map(m=>{const s=['pending','approved','rejected'].includes(m.status)?m.status:'pending';return `<div class="myitem"><div><strong>${safeText(m.business_name)}</strong><small>${new Date(m.created_at).toLocaleDateString()}</small></div><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end"><span class="status ${s}">${T[s]}</span><button type="button" class="btn btn-outline" style="padding:6px 12px" data-edit="${safeText(m.id)}">${T.edit}</button></div></div>`}).join('');
+}
+function resizeImage(file,max){
+ max=max||600;
+ return new Promise((resolve,reject)=>{
+  const url=URL.createObjectURL(file),img=new Image();
+  img.onload=()=>{
+   const sc=Math.min(1,max/Math.max(img.width,img.height));
+   const w=Math.max(1,Math.round(img.width*sc)),h=Math.max(1,Math.round(img.height*sc));
+   const c=document.createElement('canvas');c.width=w;c.height=h;
+   const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,w,h);x.drawImage(img,0,0,w,h);
+   URL.revokeObjectURL(url);
+   c.toBlob(b=>b?resolve(b):reject(new Error('resize failed')),'image/jpeg',0.82);
+  };
+  img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('bad image'))};
+  img.src=url;
+ });
+}
+async function uploadLogo(file){
+ const blob=await resizeImage(file,600);
+ const path=currentUser.id+'/'+Date.now()+'.jpg';
+ const {error}=await sb.storage.from('business-logos').upload(path,blob,{contentType:'image/jpeg'});
+ if(error)throw error;
+ return sb.storage.from('business-logos').getPublicUrl(path).data.publicUrl;
+}
+function showLogoPreview(src){
+ const p=$('logoPreview');
+ if(src){p.src=src;p.classList.remove('hidden')}else{p.removeAttribute('src');p.classList.add('hidden')}
+}
+$('bizLogo').addEventListener('change',()=>{
+ const f=$('bizLogo').files[0];
+ if(f&&/^image\//.test(f.type))showLogoPreview(URL.createObjectURL(f));else showLogoPreview(null);
+});
+function setEditMode(id){
+ editingId=id;
+ const T=tr[language],b=$('bizSubmit');
+ b.dataset.en=id?'Save changes':'Submit for review';
+ b.dataset.ha=id?'Ajiye canje-canje':'Aika domin dubawa';
+ b.textContent=b.dataset[language];
+ $('cancelEditBtn').classList.toggle('hidden',!id);
+}
+function startEdit(id){
+ const m=mine.find(x=>x.id===id);if(!m)return;
+ const T=tr[language];
+ $('bizName').value=m.business_name||'';
+ $('bizCategory').value=m.category||'';
+ $('bizState').value=m.state||'';
+ $('bizCity').value=m.city||'';
+ $('bizAddress').value=m.address||'';
+ $('bizPhone').value=m.phone||'';
+ $('bizWhatsapp').value=m.whatsapp||'';
+ $('bizEmail').value=m.email||'';
+ $('bizDescription').value=m.description||'';
+ showLogoPreview(m.logo_url||null);
+ setEditMode(id);
+ setNotice($('bizNotice'),T.editing+m.business_name+(m.status==='approved'?' — '+T.editWarn:''),false);
+ $('bizForm').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function cancelEdit(){
+ $('bizForm').reset();fillSelects();showLogoPreview(null);setEditMode(null);clearNotice($('bizNotice'));
+}
+$('cancelEditBtn').addEventListener('click',cancelEdit);
+$('mineList').addEventListener('click',e=>{const b=e.target.closest('[data-edit]');if(b)startEdit(b.dataset.edit)});
+$('tabSignup').addEventListener('click',()=>setAuthMode('signup'));
+$('tabSignin').addEventListener('click',()=>setAuthMode('signin'));
+$('authForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const T=tr[language],notice=$('authNotice'),btn=$('authSubmit');
+ if(!sb){setNotice(notice,T.noSupabase,true);return}
+ const email=$('authEmail').value.trim(),password=$('authPassword').value,name=$('fullName').value.trim();
+ clearNotice(notice);btn.disabled=true;
+ try{
+  if(authMode==='signup'){
+   const {data,error}=await sb.auth.signUp({email,password,options:{data:{full_name:name}}});
+   if(error)throw error;
+   if(data.session){setNotice(notice,T.welcome,false)}
+   else{setNotice(notice,T.checkEmail,false);setAuthMode('signin');setNotice(notice,T.checkEmail,false)}
+  }else{
+   const {error}=await sb.auth.signInWithPassword({email,password});
+   if(error)throw error;
+  }
+  $('authPassword').value='';
+ }catch(err){
+  const m=String(err&&err.message||'');
+  if(/invalid login/i.test(m))setNotice(notice,T.badLogin,true);
+  else if(/already registered/i.test(m))setNotice(notice,T.already,true);
+  else setNotice(notice,m||T.genericErr,true);
+ }
+ btn.disabled=false;
+});
+$('forgotLink').addEventListener('click',async e=>{
+ e.preventDefault();
+ const T=tr[language],notice=$('authNotice'),email=$('authEmail').value.trim();
+ if(!sb){setNotice(notice,T.noSupabase,true);return}
+ if(!email){setNotice(notice,T.enterEmail,true);$('authEmail').focus();return}
+ clearNotice(notice);
+ try{
+  const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin});
+  if(error)throw error;
+  setNotice(notice,T.resetSent,false);
+ }catch(err){console.error(err);setNotice(notice,String(err&&err.message||T.genericErr),true)}
+});
+$('resetForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const T=tr[language],notice=$('resetNotice'),btn=$('resetBtn');
+ if(!sb)return;
+ clearNotice(notice);btn.disabled=true;
+ try{
+  const {error}=await sb.auth.updateUser({password:$('newPassword').value});
+  if(error)throw error;
+  $('newPassword').value='';
+  recovering=false;
+  history.replaceState(null,'',window.location.pathname);
+  setUser(currentUser);
+  setNotice($('bizNotice'),T.resetDone,false);
+ }catch(err){console.error(err);setNotice(notice,String(err&&err.message||T.genericErr),true)}
+ btn.disabled=false;
+});
+$('logoutBtn').addEventListener('click',async()=>{if(sb)await sb.auth.signOut();clearNotice($('bizNotice'))});
+
+$('bizForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const T=tr[language],notice=$('bizNotice'),btn=$('bizSubmit');
+ if(!sb||!currentUser){setNotice(notice,T.noSupabase,true);return}
+ const row={
+  owner_id:currentUser.id,
+  business_name:$('bizName').value.trim(),
+  category:$('bizCategory').value,
+  state:$('bizState').value,
+  city:$('bizCity').value.trim(),
+  address:orNull($('bizAddress').value),
+  phone:$('bizPhone').value.trim(),
+  whatsapp:orNull($('bizWhatsapp').value),
+  email:orNull($('bizEmail').value),
+  description:orNull($('bizDescription').value)
+ };
+ if(!row.business_name||!row.category||!row.state||!row.city||!row.address||!row.phone||!row.whatsapp||!row.description){setNotice(notice,T.fillRequired,true);return}
+ const existing=editingId?mine.find(x=>x.id===editingId):null;
+ if(!$('bizLogo').files[0]&&!(existing&&existing.logo_url)){setNotice(notice,language==='ha'?'Da fatan ka saka hoton shagonka ko kayanka.':'Please upload a photo of your shop or product.',true);return}
+ clearNotice(notice);btn.disabled=true;
+ try{
+  const logoFile=$('bizLogo').files[0];
+  if(logoFile){
+   if(!/^image\//.test(logoFile.type)){setNotice(notice,T.badImage,true);btn.disabled=false;return}
+   try{row.logo_url=await uploadLogo(logoFile)}catch(e){console.error(e);setNotice(notice,T.uploadFail,true);btn.disabled=false;return}
+  }
+  if(editingId){
+   const patch=Object.assign({},row,{status:'pending',verified:false});delete patch.owner_id;
+   const {error}=await sb.from('businesses').update(patch).eq('id',editingId).eq('owner_id',currentUser.id);
+   if(error)throw error;
+   $('bizForm').reset();fillSelects();showLogoPreview(null);setEditMode(null);
+   openModal(T.savedEditTitle,T.savedEditText);
+  }else{
+   const {error}=await sb.from('businesses').insert(row);
+   if(error)throw error;
+   $('bizForm').reset();fillSelects();showLogoPreview(null);
+   openModal(T.submittedTitle,T.submittedText);
+  }
+  loadMine();loadBusinesses();
+ }catch(err){console.error(err);setNotice(notice,T.genericErr,true)}
+ btn.disabled=false;
+});
+
+/* ---------- Language and page ---------- */
+function setLanguage(lang){
+ language=lang;document.documentElement.lang=lang;
+ document.querySelectorAll('[data-en][data-ha]').forEach(el=>{const v=el.dataset[lang];if(v!==undefined)el.innerHTML=v});
+ document.querySelectorAll('[data-ph-en]').forEach(el=>el.placeholder=el.dataset['ph'+(lang==='en'?'En':'Ha')]);
+ $('langBtn').textContent=lang==='en'?'Hausa':'English';
+ if(currentUser)$('userEmail').textContent=tr[lang].signedAs+(currentUser.email||'');
+ fillSelects();renderBusinesses();renderMine();
+}
+$('langBtn').addEventListener('click',()=>setLanguage(language==='en'?'ha':'en'));
+$('menuBtn').addEventListener('click',()=>$('navlinks').classList.toggle('open'));
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>$('navlinks').classList.remove('open')));
+$('searchInput').addEventListener('input',renderBusinesses);
+$('categoryFilter').addEventListener('change',renderBusinesses);
+$('stateFilter').addEventListener('change',renderBusinesses);
+$('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+$('year').textContent=new Date().getFullYear();
+
+fillSelects();setAuthMode('signup');renderBusinesses();
+loadCategories();loadBusinesses();
+if(sb){
+ sb.auth.getSession().then(({data})=>setUser(data.session?data.session.user:null));
+ sb.auth.onAuthStateChange((ev,session)=>{
+  if(ev==='PASSWORD_RECOVERY'){recovering=true;setTimeout(()=>$('join').scrollIntoView(),300)}
+  setUser(session?session.user:null);
+ });
+}else{showToast(tr[language].noSupabase)}
+</script>
+</body>
+</html>
